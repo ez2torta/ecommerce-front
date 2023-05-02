@@ -75,8 +75,9 @@ export default function ProductPage({ product }) {
               <Link
                 href={"/cart"}
                 onClick={() => addProductToCart(product._id)}
+                style={{textDecoration: null}}
               >
-                <Button block primary>
+                <Button block primary noLink>
                   <CartIcon /> Agregar al Carrito
                 </Button>
               </Link>

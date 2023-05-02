@@ -74,7 +74,7 @@ const NavButton = styled.button`
   }
 `;
 
-const CarritoButton = styled.button`
+const CarritoButton = styled(Link)`
   background-color: transparent;
   width: 30px;
   height: 30px;

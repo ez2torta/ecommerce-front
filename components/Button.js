@@ -1,5 +1,10 @@
 import styled, { css } from "styled-components";
-import { primary, secondary, instagramColor, whatsappColor } from "@/lib/colors";
+import {
+  primary,
+  secondary,
+  instagramColor,
+  whatsappColor,
+} from "@/lib/colors";
 
 export const ButtonStyle = css`
   border: 0;
@@ -92,29 +97,29 @@ export const ButtonStyle = css`
       color: ${instagramColor};
     `}
   ${(props) =>
-      props.instagram &&
-      !props.outline &&
-      css`
-        background-color: ${instagramColor};
-        border: 1px solid ${instagramColor};
-        color: #fff;
-      `}
+    props.instagram &&
+    !props.outline &&
+    css`
+      background-color: ${instagramColor};
+      border: 1px solid ${instagramColor};
+      color: #fff;
+    `}
     ${(props) =>
-      props.whatsapp &&
-      props.outline &&
-      css`
-        background-color: transparent;
-        border: 1px solid ${whatsappColor};
-        color: ${whatsappColor};
-      `}
+    props.whatsapp &&
+    props.outline &&
+    css`
+      background-color: transparent;
+      border: 1px solid ${whatsappColor};
+      color: ${whatsappColor};
+    `}
     ${(props) =>
-        props.whatsapp &&
-        !props.outline &&
-        css`
-          background-color: ${whatsappColor};
-          border: 1px solid ${whatsappColor};
-          color: #fff;
-        `}
+    props.whatsapp &&
+    !props.outline &&
+    css`
+      background-color: ${whatsappColor};
+      border: 1px solid ${whatsappColor};
+      color: #fff;
+    `}
   ${(props) =>
     props.size === "l" &&
     css`
@@ -128,6 +133,11 @@ export const ButtonStyle = css`
     props.size === "small" &&
     css`
       padding: 5px 10px;
+    `}
+    ${(props) =>
+    props.noLink &&
+    css`
+      text-decoration: none;
     `}
 `;
 
