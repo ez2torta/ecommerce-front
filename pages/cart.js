@@ -30,8 +30,8 @@ const ProductInfoCell = styled.td`
 `;
 
 const ProductImageBox = styled.div`
-  width: 50px;
-  height: 80px;
+  width: 40px;
+  height: 40px;
   padding: 2px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
@@ -44,11 +44,11 @@ const ProductImageBox = styled.div`
   }
   @media screen and (min-width: 768px) {
     padding: 10px;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     img {
-      max-width: 80px;
-      max-height: 80px;
+      max-width: 60px;
+      max-height: 60px;
     }
   }
 `;
@@ -192,6 +192,7 @@ export default function CartPage() {
                         <td>{product.title}</td>
                         <td>
                           <Button
+                            size={"small"}
                             onClick={() => lessOfThisProduct(product._id)}
                           >
                             -
@@ -203,6 +204,7 @@ export default function CartPage() {
                             }
                           </QuantityLabel>
                           <Button
+                            size={"small"}
                             onClick={() => moreOfThisProduct(product._id)}
                           >
                             +
@@ -210,8 +212,10 @@ export default function CartPage() {
                         </td>
                         <td>
                           $
-                          {cartProducts.filter((id) => id === product._id)
-                            .length * product.price}
+                          {(
+                            cartProducts.filter((id) => id === product._id)
+                              .length * product.price
+                          ).toLocaleString("es-CL")}
                         </td>
                       </tr>
                     );
@@ -223,7 +227,7 @@ export default function CartPage() {
                     <td></td>
                     <td></td>
                     <td>
-                      <b>$ {total}</b>
+                      <b>$ {total.toLocaleString("es-CL")}</b>
                     </td>
                   </tr>
                 </tbody>

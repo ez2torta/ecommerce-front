@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Button from "@/components/Button";
 import CartIcon from "@/components/icons/CartIcon";
 import Link from "next/link";
-import Image from "next/image"
+import Image from "next/image";
 import { useContext } from "react";
 import { CartContext } from "@/components/CartContext";
 
@@ -19,7 +19,6 @@ const WhiteBox = styled(Link)`
   border-radius: 10px;
   img {
     max-width: 100%;
-    max-height: 80px;
   }
 `;
 
@@ -66,22 +65,26 @@ export default function ProductBox({ _id, title, description, price, images }) {
   return (
     <ProductWrapper>
       <WhiteBox href={url}>
-        
-        <div>
+        <div
+          style={{
+            height: "100%",
+            width: "100%",
+            position: "relative",
+            "object-fit": "cover",
+            overflow: "hidden",
+          }}
+        >
           <Image
-            src={
-              images?.[0] || "/no-image.jpg"
-            }
+            src={images?.[0] || "/no-image.jpg"}
             alt="Foto Producto"
-            height={250}
-            width={250}
+            fill={true}
           />
         </div>
       </WhiteBox>
       <ProductInfoBox>
         <Title href={url}>{title}</Title>
         <PriceRow>
-          <Price>${price}</Price>
+          <Price>${price.toLocaleString("es-CL")}</Price>
           <Link href={"/cart"}>
             <Button block primary onClick={() => addProductToCart(_id)}>
               <CartIcon />
