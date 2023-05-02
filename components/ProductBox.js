@@ -70,7 +70,7 @@ export default function ProductBox({ _id, title, description, price, images }) {
             height: "100%",
             width: "100%",
             position: "relative",
-            "object-fit": "cover",
+            objectFit: "cover",
             overflow: "hidden",
           }}
         >

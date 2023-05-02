@@ -5,6 +5,8 @@ import { useContext, useState } from "react";
 import { CartContext } from "@/components/CartContext";
 import BarsIcon from "@/components/icons/Bars";
 import CartIcon from "@/components/icons/CartIcon";
+import ProductIcon from "@/components/icons/ProductIcon";
+import HomeIcon from "@/components/icons/HomeIcon";
 
 // #ff9603
 // #2d03ff
@@ -49,10 +51,10 @@ const StyledNav = styled.nav`
   }
 `;
 const NavLink = styled(Link)`
-  display: block;
+  display: relative;
   color: #aaa;
   text-decoration: none;
-  padding: 10px 0;
+  padding: 0.5em;
   @media screen and (min-width: 768px) {
     padding: 10px;
   }
@@ -66,13 +68,26 @@ const NavButton = styled.button`
   cursor: pointer;
   position: relative;
   z-index: 3;
+
   @media screen and (min-width: 768px) {
     display: none;
   }
 `;
 
+const CarritoButton = styled.button`
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+`;
+
 export default function Header() {
   const { cartProducts } = useContext(CartContext);
+  const cartLength = cartProducts.length;
   const [mobileNavActive, setMobileNavActive] = useState(false);
   return (
     <StyledHeader>
@@ -83,12 +98,12 @@ export default function Header() {
           </NavButton>
           <Logo href={"/"}>Tortita.net</Logo>
           <StyledNav mobileNavActive={mobileNavActive}>
-            <NavLink href={"/"}>Home</NavLink>
-            <NavLink href={"/products"}>Productos</NavLink>
+            <NavLink href={"/"}>Inicio</NavLink>
+            <NavLink href={"/products"}>Producto</NavLink>
           </StyledNav>
-          <NavLink href={"/cart"}>
-            <CartIcon /> ({cartProducts.length})
-          </NavLink>
+          <CarritoButton href={"/cart"}>
+            <CartIcon /> ({cartLength})
+          </CarritoButton>
         </Wrapper>
       </Center>
     </StyledHeader>
